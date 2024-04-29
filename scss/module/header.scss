@@ -1,0 +1,140 @@
+.header{
+	padding: 5px;
+
+}
+.welcome p *{
+	margin: .5em;
+	
+}
+
+.name{
+
+	margin: 20px 5px 10px 10px;
+	display: inline-block;
+  font-size: 3em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #00b7ff;
+  font-family: verdana;
+  
+  animation: name 10s ;
+  
+}
+@keyframes name {
+	0%{  text-shadow:4px 4px #005c80;}
+	30%{  text-shadow:4px 4px #005c80;}
+
+	35%{  text-shadow:4px 4px  #4d4940;}
+	40%{  text-shadow:4px 4px  #4d4940;}
+
+	45%{  text-shadow:4px 4px   #5c6616;}
+	52%{  text-shadow:4px 4px   #5c6616;}
+
+	53%{  text-shadow:4px 4px   #2b6616;}
+	60%{  text-shadow:4px 4px   #2b6616;}
+
+	65%{  text-shadow:4px 4px   #396849;}
+	75%{  text-shadow:4px 4px  #1c4673;}
+
+	78%{  text-shadow:4px 4px #1c1d73;}
+	85%{  text-shadow:4px 4px #1c1d73;}
+
+	90%{  text-shadow:4px 4px  #652491;}
+	100%{  text-shadow:4px 4px  #652491;}
+
+
+	
+}
+.greet{
+	font-size: 2em;
+}
+.job{
+		
+		display: inline-block;
+	text-transform: capitalize;
+font-size: 2em;
+}
+
+.welcome{
+	display: flex;
+}
+
+
+.welcome__texte{
+	
+	width: 100%;
+	padding: 2em 2em 4em 2em;
+
+}
+.welcome__slider{
+	
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+
+}
+.laptop{
+	display: flex;justify-content: center;align-items: center;
+	position: relative;
+}
+.laptop img{
+	max-width: 70%;
+}
+
+.laptop__slider{
+position: absolute;
+top: 7%;
+
+bottom: 32%;
+right: 24%;
+left: 23%;
+overflow: hidden;
+}
+
+.laptop__slides{
+	display: flex;
+	height: 700%;
+	width: 100%;
+	flex-direction: column;
+	animation : laptop 80s infinite alternate;
+}
+.laptop__slide{
+	height: calc(100% / 7);
+	display: flex;
+	justify-content: center;align-items: center;
+}
+
+@keyframes laptop{
+	0%{transform:  translateY(calc(-100% / 7 * 0));}
+	14%{transform:  translateY(calc(-100% / 7 * 0));}
+
+	16%{transform: translateY(calc(-100% / 7 * 1));}
+	30%{transform: translateY(calc(-100% / 7 * 1));}
+
+	32%{transform: translateY(calc(-100% / 7 * 2));}
+	46%{transform: translateY(calc(-100% / 7 * 2));}
+
+	48%{transform: translateY(calc(-100% / 7 * 3));}
+	62%{transform: translateY(calc(-100% / 7 * 3));}
+
+	64%{transform: translateY(calc(-100% / 7 * 4));}
+	78%{transform: translateY(calc(-100% / 7 * 4));}
+
+	80%{transform: translateY(calc(-100% / 7 * 5));}
+	90%{transform: translateY(calc(-100% / 7 * 5));}
+
+	92%{transform: translateY(calc(-100% / 7 * 6));}
+	100%{transform: translateY(calc(-100% / 7 * 6));}
+
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+  .welcome{
+  	flex-wrap: wrap;
+  }
+}

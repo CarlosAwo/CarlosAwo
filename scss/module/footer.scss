@@ -1,0 +1,94 @@
+
+
+/*********************************************
+ *  Footer
+ *********************************************/
+.contactFormulaire {
+  padding: 0 10px 15px 10px;
+  display: block;
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+  border: .5px solid white;
+}
+
+
+.contactFormulaire .answer {
+  display: block;
+}
+.contactFormulaire ul{
+  text-align: left;
+}
+.contactFormulaire .answer--error {
+  color: #f06161;
+}
+
+.contactFormulaire .answer--success {
+  color: #11aa1b;
+}
+
+#msg {
+  resize: both;
+}
+
+.contact__texte {
+  max-width: 460px;
+  margin: 10px auto;
+
+  
+}
+.contact__texte p{
+
+   padding:4px; 
+}
+.form__group{
+  padding:.3em;
+ 
+}
+
+
+
+
+footer .content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .formulaire {
+  max-width: 600px;
+}
+
+.footer--informationsSuplementaires {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__group {
+  text-align: center;
+}
+
+.form__group * {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 5px 5px;
+}
+
+.form__group label {
+  font-style: italic;
+  
+}
+
+input, textarea {
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+footer *::placeholder {
+  color: #d7d7d7;
+  font-size: 15px;
+  font-style: italic;
+  text-align: center;
+}

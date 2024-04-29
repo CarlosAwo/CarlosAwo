@@ -1,0 +1,60 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+/*
+ * author : AWO CARLOS
+ * site web :  https://awo-carlos.dev/
+ * addresse mail : awocarlos55@gmail.com
+*/
+
+p{
+	font-size: 18px;
+}
+.projet__content{
+		max-width:700px;
+	margin: 0 auto;
+}
+.pageContent .boxes{
+
+	min-height: 300px;
+	border: 2px dashed #fff;
+  resize: both;
+  overflow: hidden;
+
+}
+
+/*.pageContent .boxes .box{
+	width:40px;
+	height:40px;
+}*/
+
+.pageContent .boxColor{
+	
+	-webkit-box-sizing:content-box;
+	
+	        box-sizing:content-box;
+	cursor: pointer;
+	border: 2px dashed red ;
+	background: transparent;
+}
+.pageContent .box{
+	display: inline-block;
+	width:50px;height:50px;
+	margin:-1px 2px -1px 2px;
+
+}
+
+@media (max-width: 800px) {
+.pageContent .boxes .box{
+	width:42px;
+	height:42px;
+}
+
+}
+
+
+

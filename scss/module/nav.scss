@@ -1,0 +1,134 @@
+.logo {
+  display: inline-block;
+  height: 7em;
+  width: 130px;
+}
+
+.logo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.logo--footer {
+  height: 5em;
+  width: unset;
+  text-align: center;
+}
+
+.menu__hamburger {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+height: 3em;
+width: 3.5em;
+  justify-content: center;
+  align-content: space-around;
+  cursor: pointer;
+  z-index: 2;
+  top: 20px;
+  right: 20px;
+}
+
+.menu__hamburger--on .menu__hamburger__item:nth-child(1) {
+  width: 0;
+  height: 0;
+}
+
+.menu__hamburger--on .menu__hamburger__item:nth-child(2) {
+  transform: rotate(-45deg);
+  width: 100%;
+  position: absolute;
+  top: 15px;
+}
+
+.menu__hamburger--on .menu__hamburger__item:nth-child(3) {
+  transform: rotate(45deg);
+  width: 100%;
+  position: absolute;
+  top: 15px;
+}
+
+.menu__hamburger__item {
+  z-index: 5;
+  width: 80%;
+  position: static;
+  bottom: 0px;
+  height: 5px;
+  transition: all 0.5s;
+}
+
+.menu__hamburger__item:nth-child(1) {
+  background-color: #66d4ff;
+}
+
+.menu__hamburger__item:nth-child(2) {
+  background-color: #66d4ff;
+  transform: rotate(0deg);
+}
+
+.menu__hamburger__item:nth-child(3) {
+  background-color: #66d4ff;
+  transform: rotate(0deg);
+}
+.menu__hamburger--invisible{
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.menu__hamburger--visible{
+  width: 3em;
+  height: 2.5em;
+}
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.navigation__item {
+  list-style: none;
+  margin-right: 15px;
+}
+
+.navigation__link {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.3em;
+  transition: all 0.3s;
+}
+
+.navigation__link:hover {
+  color: #0db8fb;
+  border-bottom: 2px solid #0db8fb;
+}
+
+.navigation__list {
+  width: calc(100% - 130px);
+}
+
+.navigation__list--mobile {
+  display: flex;
+  flex-direction: column;
+  background-color: #006f6fa3;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  margin: 0 auto;
+  width: 100%;
+  height: 0px;
+  overflow: hidden;
+  transition: all 0.6s;
+}
+.navigation__list--mobile--visible {
+height: 120px;
+}
+
+
+
+.navigation__list--desktop {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}

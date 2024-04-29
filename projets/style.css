@@ -1,0 +1,19 @@
+
+.projet__desc{
+	max-width: 600px;
+	margin: 0 auto;
+	padding:1.5em; 
+}
+.pageContent{
+	padding: 10px;
+	margin: 10px auto;
+}
+.project__header{
+	text-align: center;
+	background: #35403e;
+	padding: 15px;
+	margin: 25px 0 25px 0;
+}
+.project__header .btn:hover{
+	color:#0b7b9d;	
+}

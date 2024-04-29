@@ -1,0 +1,11 @@
+		.typing{
+			border-right: 2px solid white;
+			
+			animation: clignote .5s infinite;
+		}
+
+		@keyframes clignote {
+			0%{border-color: white}
+			100%{border-color: transparent;}
+			
+		}

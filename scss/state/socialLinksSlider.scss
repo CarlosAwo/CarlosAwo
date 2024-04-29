@@ -1,0 +1,77 @@
+
+.socialLinks{
+
+	display: flex;
+
+}
+.socialLinks--footer{
+	.socialLink{
+		
+		height: 50px;
+
+	}
+	svg{
+		width: 100%;height: 100%;
+	}
+
+}
+.socialLinks--slider{
+	width: calc(100% * 4);
+
+	height: 100%;
+	display: flex;
+	transform: translateX(0);
+	animation-name: socialLinksSlider;
+	animation-duration: 40s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+
+}
+.socialLink{
+	
+	width: 100%;
+	height: 100%;
+	margin: 5px;
+}
+.socialLink:hover svg{
+	fill: #126679;
+	
+}
+.socialLink:active svg{
+	fill: #00b7ff;
+	
+}
+
+
+
+@keyframes socialLinksSlider {
+			0%{
+				transform:translateX(calc(-100% / 4 * 0))
+			}
+			30%{
+				transform:translateX(calc(-100% / 4 * 0))
+			}
+			/* temps de transition du premier element au deuxime element*/
+
+			33.33%{
+				transform:translateX(calc(-100% / 4 * 1))
+			}
+			63.33%{
+				transform:translateX(calc(-100% / 4 * 1))
+			}
+
+			66.66%{
+				transform:translateX(calc(-100% / 4 * 2))
+			}
+			87.66%{
+				transform:translateX(calc(-100% / 4 * 2))
+			}
+
+			90%{
+				transform:translateX(calc(-100% / 4 * 3))
+			}
+			100%{
+				transform:translateX(calc(-100% / 4 * 3))
+			}
+
+}

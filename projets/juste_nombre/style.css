@@ -1,0 +1,254 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+/*
+ * author : AWO CARLOS
+ * site web :  https://awo-carlos.dev/
+ * addresse mail : awocarlos55@gmail.com
+*/
+.pageContent .projet__content{
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	background-image: -o-linear-gradient(45deg, #de7a5482 ,#021d25);
+	background-image: linear-gradient(45deg, #de7a5482 ,#021d25);
+	background-size:cover;
+
+}
+.pageContent .contexte{
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+    background: #37474d;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.pageContent .contexte--visible{
+	position: absolute;
+	top: 0;
+
+}
+.pageContent .contexte--invisible{
+	position: absolute;
+	top: 100%;
+
+}
+
+.pageContent .contexte__desc{
+	font-size: 20px;
+    padding: 5px;
+}
+.pageContent .actions-start{
+	text-align: center;
+}
+
+.pageContent .justPrix{
+	position: relative;
+	width: 100%;
+	max-width: 35rem;
+	border:1px solid #021d25;
+	border-radius: 5px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#de7a544f) ,to(#021d25b8));
+	background: -o-linear-gradient(top, #de7a544f ,#021d25b8);
+	background: linear-gradient(180deg, #de7a544f ,#021d25b8);
+
+}
+.pageContent .justPrix input{
+	background:#021d25b8;
+	color: #fff;
+	border: none;
+	outline: none;
+	padding: 5px 5px;
+	text-align: center;
+	font-size: 25px;
+}
+.pageContent .justPrix__header{
+	border: 1px solid #000;
+	text-align: center;
+
+}
+.pageContent .justPrix__title{
+	text-align:center;
+	font-size: 23px;
+font-weight: bold;
+}
+
+.pageContent .justPrix__body{
+	position: relative;
+	border: 1px solid #827272;
+	padding: 20px 0;
+	overflow: hidden;
+	position: relative;
+	height: 275px;
+
+}
+.pageContent .justPrix__body div:not(.contexte){
+	
+}
+
+.pageContent .outputZone-timer{
+	border: 1px solid #000;
+	border-radius: 10px;
+	text-align: center;
+	padding: 8px 5px;
+
+}
+.pageContent .success{
+	text-align: center;
+	word-break:normal; 
+	padding: 5px;
+	font-size:20px;
+	background-color: #1ffd0cb0;
+	-webkit-animation:success 1s;
+	        animation:success 1s;
+}
+.pageContent .error{
+	text-align: center;
+		padding: 5px;
+	font-size:20px;
+	background-color: #ee1e1eb0;
+	-webkit-animation:error 1s;
+	        animation:error 1s;
+}
+.pageContent .inputZone{
+	text-align: center;
+}
+.pageContent .inputZone * {
+	padding: 5px 5px;
+}
+
+
+.pageContent .justPrix__footer{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+
+}
+.pageContent .btn{
+    text-transform: uppercase;
+    background-color: rgb(28 84 177 / 81%);
+    border: 2px solid rgb(51 84 138 / 94%);
+    cursor: pointer;
+    padding: .5em .5em;
+    text-align: center;
+    font-size: 15px;
+    display: inline-block;
+    
+}
+
+.pageContent .justPrix .btn:hover{
+	  background-color: rgba(28,84,177,1);
+}
+.pageContent .justPrix .btn:active{
+	  background-color: rgb(255,255,255);
+}
+.pageContent .justPrix .btn[disabled]{
+	border: none;
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+
+.pageContent .score{
+	display: inline-block;	
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+	border: 1px solid rgba(0,0,0,0.5);
+	border-radius: 20px;
+}
+.pageContent .score-name{
+	text-transform: capitalize;
+}
+
+@-webkit-keyframes success {
+	0%{
+		background-color: #1ffd0cb0;
+	}
+	40%{
+		background-color: transparent;
+	}
+	80%{
+		background-color: #1ffd0cb0;
+	}
+	90%{
+		background-color: transparent;
+	}
+	100%{
+		background-color: #1ffd0cb0;
+	}
+	
+}
+
+@keyframes success {
+	0%{
+		background-color: #1ffd0cb0;
+	}
+	40%{
+		background-color: transparent;
+	}
+	80%{
+		background-color: #1ffd0cb0;
+	}
+	90%{
+		background-color: transparent;
+	}
+	100%{
+		background-color: #1ffd0cb0;
+	}
+	
+}
+@-webkit-keyframes error {
+	0%{
+		background-color: #ee1e1eb0;
+	}
+	40%{
+		background-color: transparent;
+	}
+	80%{
+		background-color: #ee1e1eb0;
+	}
+	90%{
+		background-color: transparent;
+	}
+	100%{
+		background-color: #ee1e1eb0;
+	}
+	
+}
+@keyframes error {
+	0%{
+		background-color: #ee1e1eb0;
+	}
+	40%{
+		background-color: transparent;
+	}
+	80%{
+		background-color: #ee1e1eb0;
+	}
+	90%{
+		background-color: transparent;
+	}
+	100%{
+		background-color: #ee1e1eb0;
+	}
+	
+}
+

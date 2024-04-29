@@ -1,0 +1,29 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+/*
+ * author : AWO CARLOS
+ * site web : **************
+ * addresse mail : awocarlos55@gmail.com
+*/
+.carousel__body{
+	position: relative;
+	max-width: 1000px;
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #e6ab20;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	margin: 0 auto;
+
+}
+.exemple{
+	margin: 15px auto;
+text-align: center;
+padding: 5px;
+}

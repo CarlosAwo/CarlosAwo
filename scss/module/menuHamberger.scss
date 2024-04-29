@@ -1,0 +1,27 @@
+
+
+.menuHamberger{
+	width: 3.5em;
+	height: 3em;
+	border: 2px solid teal;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.menuHamberger span{
+	height: 10%;
+		width: 100%;
+		display: block;
+}
+.menuHamberger span:nth-child(1){
+	margin-top:11px; 
+	background-color: yellow;
+}
+.menuHamberger span:nth-child(2){
+
+	background-color: #000;
+
+}
+.menuHamberger span:nth-child(3){
+	background-color:teal;
+}
