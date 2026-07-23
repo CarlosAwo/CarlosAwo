@@ -1,0 +1,103 @@
+<!-- autheur: AWO CARLOS -->
+<!-- site web : https://awo-carlos.dev/ -->
+<!-- addresse mail:awocarlos55@gmail.com -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Blog || Awo Carlos || Portfolio</title>
+
+  <meta name="description" content="Articles, tutoriels et notes de Carlos Awo sur le développement web, Ruby on Rails et ses projets.">
+  <meta name="author" content="Awo Carlos, awo-carlos.dev, awocarlos55@gmail.com">
+  <meta name="robots" content="index, follow" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg">
+    <div class="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+      <div class="flex items-center justify-between">
+        <a href="../index.html" class="text-xl font-semibold text-gray-700">Blog</a>
+      </div>
+      <div class="md:flex md:items-center md:mt-0">
+        <a href="../index.html" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Home</a>
+        <a href="../index.html#works" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Works</a>
+        <a href="../index.html#skills" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Skills</a>
+        <a href="./index.html" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-900 font-semibold transition-colors duration-300">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Blog Header -->
+  <section class="bg-[#FF9800] border-b py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold text-gray-800 mb-3">Blog</h1>
+      <p class="text-gray-700 max-w-2xl mx-auto">
+        Articles, tutoriels et notes sur le développement web, Ruby on Rails et les projets sur lesquels je travaille.
+      </p>
+    </div>
+  </section>
+
+  <!-- Articles List -->
+  <main class="container mx-auto px-4 py-20">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Article 1 : C'est quoi PI ? -->
+      <article class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-transform transform hover:-translate-y-1 hover:shadow-lg duration-300">
+        <img src="./images/pi-spi-cover.png" alt="PI-SPI — L'infrastructure d'interopérabilité des paiements de l'UEMOA" class="h-40 w-full object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+          <span class="text-sm text-blue-500 font-semibold mb-2">Fintech · PI-SPI (BCEAO)</span>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">C'est quoi PI ? <span class="text-gray-400">(1/30)</span></h3>
+          <p class="text-gray-600 mb-4 flex-grow">PI, c'est la Plateforme d'Interopérabilité de la BCEAO — l'infrastructure régionale qui connecte tous les acteurs financiers de l'UEMOA sur un même réseau de paiement.</p>
+          <div class="flex items-center justify-between mt-auto">
+            <span class="text-sm text-gray-400">23 juil. 2026 · 5 min</span>
+            <a href="./cest-quoi-pi.html" class="text-blue-500 hover:text-blue-600 font-semibold">Lire →</a>
+          </div>
+        </div>
+      </article>
+
+      <!--
+        MODÈLE — à dupliquer pour chaque nouvel article :
+        <article class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-transform transform hover:-translate-y-1 hover:shadow-lg duration-300">
+          <div class="h-40 bg-[#FF9800] flex items-center justify-center">
+            <span class="text-white text-5xl font-bold">PI</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <span class="text-sm text-blue-500 font-semibold mb-2">CATÉGORIE</span>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">TITRE (2/30)</h3>
+            <p class="text-gray-600 mb-4 flex-grow">Court extrait...</p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="text-sm text-gray-400">DATE · X min</span>
+              <a href="./mon-article.html" class="text-blue-500 hover:text-blue-600 font-semibold">Lire →</a>
+            </div>
+          </div>
+        </article>
+      -->
+
+    </div>
+
+  </main>
+
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-6">
+      <p class="text-center">Copyright &copy; <span id="current-year">2023</span>
+      Web Developer Portfolio | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

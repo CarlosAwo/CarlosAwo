@@ -55,6 +55,7 @@
           <a href="#" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Home</a>
           <a href="#works" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Works</a>
           <a href="#skills" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Skills</a>
+          <a href="./blog/index.html" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Blog</a>
         </div>
       </div>
     </nav>
@@ -339,10 +340,14 @@
 
     <footer class="bg-gray-800 text-white py-6">
       <div class="container mx-auto px-6">
-        <p class="text-center">Copyright &copy; 2023 
+        <p class="text-center">Copyright &copy; <span id="current-year">2023</span>
         Web Developer Portfolio | All rights reserved.</p>
       </div>
     </footer>
+
+    <script>
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
 
