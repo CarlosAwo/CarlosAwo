@@ -1,0 +1,199 @@
+<!-- autheur: AWO CARLOS -->
+<!-- site web : https://awo-carlos.dev/ -->
+<!-- addresse mail:awocarlos55@gmail.com -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pourquoi PI-SPI ? (2/30) || Blog || Awo Carlos</title>
+
+  <meta name="description" content="Avant de regarder comment PI-SPI fonctionne, comprendre pourquoi il existe : la fragmentation des paiements dans l'UEMOA, ce que ça change pour l'inclusion financière, et pourquoi la BCEAO l'impose.">
+  <meta name="keywords" content="PISPI, BCEAO, Fintech, UEMOA, Paiement Instantané, interopérabilité, inclusion financière">
+  <meta name="author" content="Awo Carlos, awo-carlos.dev, awocarlos55@gmail.com">
+  <meta name="robots" content="index, follow" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg">
+    <div class="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+      <div class="flex items-center justify-between">
+        <a href="../index.html" class="text-xl font-semibold text-gray-700">Blog</a>
+        <button id="menu-btn" class="md:hidden rounded-lg focus:outline-none focus:shadow-outline-gray" aria-label="Toggle Menu" aria-expanded="false">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+            <path d="M0,20 h20 v-2.5 h-20 v2.5Z M0,11 h20 v-2.5 h-20 v2.5Z M0,2.5 h20 v-2.5 h-20 v2.5Z" />
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="md:flex md:items-center md:mt-0 hidden">
+        <a href="../index.html" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Home</a>
+        <a href="../index.html#works" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Works</a>
+        <a href="../index.html#skills" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Skills</a>
+        <a href="./index.html" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-900 font-semibold transition-colors duration-300">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Article -->
+  <article class="container mx-auto px-4 py-12 max-w-3xl">
+
+    <!-- Fil d'Ariane -->
+    <a href="./index.html" class="inline-flex items-center text-blue-500 hover:text-blue-600 font-semibold mb-6">← Retour au blog</a>
+
+    <!-- En-tête article -->
+    <header class="mb-10">
+      <span class="text-sm text-blue-500 font-semibold">Fintech · PI-SPI (BCEAO)</span>
+      <h1 class="text-4xl font-bold text-gray-800 mt-2 mb-4">Pourquoi PI-SPI ? <span class="text-gray-400 text-2xl align-middle">(2/30)</span></h1>
+      <div class="flex items-center text-sm text-gray-500">
+        <span>Par Carlos Awo</span>
+        <span class="mx-2">·</span>
+        <time datetime="2026-07-24">24 juillet 2026</time>
+        <span class="mx-2">·</span>
+        <span>6 min de lecture</span>
+      </div>
+    </header>
+
+    <!-- Image de couverture -->
+    <img src="./images/pourquoi-pi-spi.png" alt="Pourquoi PI-SPI ? — Résoudre la fragmentation des paiements dans l'UEMOA" class="w-full rounded-lg shadow-md mb-10">
+
+
+    <!-- Corps de l'article -->
+    <div class="space-y-5 text-gray-700 leading-relaxed text-lg">
+      <p>
+        Il y a un réflexe que j'ai à chaque fois que j'étudie une nouvelle solution : avant de regarder <em>comment</em> elle fonctionne, je cherche à comprendre <strong>pourquoi</strong> elle existe.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Quelle problématique vient-il résoudre ?</h2>
+      <p>
+        Avant PI-SPI, l'écosystème des paiements numériques de l'UEMOA restait <strong>fragmenté</strong> : chaque prestataire fonctionnait en vase clos, sans interconnexion avec les autres. Résultat concret : des frais élevés et peu transparents, une exposition aux erreurs et à la fraude, une acceptation limitée des paiements digitaux par les commerçants, et une expérience utilisateur qui variait d'un prestataire à l'autre.
+      </p>
+      <p>
+        Au Niger, ça se traduisait très concrètement. Un client Airtel Money à Niamey qui veut payer un commerçant qui n'accepte que Moov Money n'a pas d'option directe : soit le commerçant refuse le paiement, soit le client doit faire un retrait (<em>cash-out</em>) chez un agent Airtel puis redéposer (<em>cash-in</em>) sur un compte Moov — avec des frais à chaque étape. Résultat : beaucoup de commerçants finissaient par exiger plusieurs SIM et plusieurs comptes juste pour pouvoir encaisser tous leurs clients, quel que soit leur opérateur.
+      </p>
+      <p>
+        Le même problème existe au-delà des seuls opérateurs télécoms. NITA et Amana (AmanaTa), deux fintechs nigériennes de transfert d'argent, ont longtemps fonctionné en écosystème quasi fermé, avec des interconnexions limitées et construites au cas par cas avec d'autres acteurs (NITA a par exemple annoncé une interopérabilité avec Banque Atlantique Niger en juin 2026). Ce genre d'accord bilatéral, utile mais ponctuel, illustre bien le problème : sans infrastructure commune comme PI-SPI, chaque interopérabilité doit être négociée et construite acteur par acteur.
+      </p>
+      <p>
+        Même logique entre banque et mobile money : un salarié payé sur son compte bancaire (Ecobank, BOA, ou autre) qui veut envoyer de l'argent à un proche qui n'a qu'un compte Airtel Money ou Moov Money devait souvent passer par un intermédiaire physique — agent ou guichet — plutôt qu'un simple transfert numérique direct.
+      </p>
+      <p>
+        C'est exactement ce type de problème que nous adressons au quotidien chez <strong>Ifutur</strong>, à travers <strong>iPay</strong>. J'ai travaillé personnellement sur les deux volets de cette passerelle unique de paiement, qui agrège Airtel Money, Moov Money, Zamani Cash et plusieurs banques (BOA, Orabank...) derrière une seule intégration. Côté collecte, un commerçant encaisse tous ses clients — quel que soit leur opérateur — sans multiplier les SIM et les comptes. Côté distribution, j'ai contribué à la solution qui permet d'envoyer des paiements en masse vers les bénéficiaires, peu importe où se trouve leur compte. PI-SPI viendra étendre cette interopérabilité au niveau de toute l'Union ; c'est un problème qu'on résout déjà, à notre échelle, sur le marché nigérien.
+      </p>
+      <p>
+        Conséquence directe : la majorité des transactions se faisaient encore en espèces, malgré la progression des services financiers numériques dans la région.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Est-ce que ce genre de solution existe ailleurs ?</h2>
+      <p>
+        Oui. Plusieurs banques centrales ont construit leur propre infrastructure de paiement instantané interopérable : <strong>Pix</strong> au Brésil (2020), <strong>UPI</strong> en Inde, <strong>FedNow</strong> aux États-Unis, <strong>SEPA Instant</strong> en Europe. PI-SPI s'inscrit dans cette même dynamique mondiale.
+      </p>
+      <p>
+        Ce qui distingue PI-SPI, c'est le <strong>périmètre</strong> : dès le départ, la plateforme intègre non seulement les banques, mais aussi les émetteurs de monnaie électronique, les institutions de microfinance et les établissements de paiement. Dans une région où le mobile money et la microfinance pèsent autant — voire plus — que le système bancaire classique, ce choix n'est pas un détail.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Pourquoi la BCEAO veut l'imposer ?</h2>
+      <p>
+        Parce que l'<strong>inclusion financière</strong> est un objectif stratégique assumé : la BCEAO vise au moins <strong>90 % de la population adulte</strong> de l'UEMOA à l'horizon 2030. Une infrastructure interopérable et gratuite pour les particuliers au niveau national est un levier direct vers cet objectif — pas juste une amélioration technique.
+      </p>
+      <p>
+        C'est aussi une question de <strong>souveraineté</strong> sur l'infrastructure de paiement régionale, dans un contexte où d'autres zones économiques ont fait le même choix pour ne pas dépendre de systèmes tiers.
+      </p>
+      <p>
+        Concrètement, ça se traduit par une <strong>obligation réglementaire</strong> : la connexion à PI-SPI n'est pas optionnelle pour les établissements habilités. Chaque catégorie de participant a une échéance fixée par la BCEAO pour ouvrir ses services — un calendrier que je détaillerai dans un prochain post.
+      </p>
+    </div>
+
+    <!-- Glossaire -->
+    <section class="mt-12 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-xl font-bold text-gray-800 mb-4">Glossaire</h2>
+      <dl class="space-y-4 text-gray-700">
+        <div>
+          <dt class="font-semibold text-gray-800">Fragmentation des paiements</dt>
+          <dd>Situation où les systèmes de paiement des différents prestataires ne communiquent pas entre eux, obligeant l'utilisateur à rester dans l'écosystème de son propre fournisseur.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Interopérabilité</dt>
+          <dd>Capacité de systèmes ou de services distincts, appartenant à des prestataires différents, à échanger et à traiter des opérations entre eux comme s'ils faisaient partie d'un même réseau — sans que l'utilisateur ait besoin de connaître ni de gérer cette différence.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Inclusion financière</dt>
+          <dd>Accès effectif d'une population aux services financiers de base (compte, paiement, épargne, crédit) et leur utilisation réelle au quotidien.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Pix</dt>
+          <dd>Système de paiement instantané interopérable de la banque centrale du Brésil, lancé en 2020, rendu obligatoire pour les institutions financières comptant plus de 500 000 comptes actifs.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">UPI (Unified Payments Interface)</dt>
+          <dd>Infrastructure de paiement instantané interopérable développée par le régulateur des paiements indien (NPCI).</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- Sources -->
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-gray-800 mb-3">Sources</h2>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>Page « À propos » PI-SPI (BCEAO) — <a href="https://pispi.bceao.int/propos" class="text-blue-500 hover:text-blue-600 break-words">pispi.bceao.int/propos</a></li>
+        <li>Lancement officiel de PI-SPI, BCEAO — <a href="https://www.bceao.int/fr/content/lancement-officiel-de-la-plateforme-interoperable-du-systeme-de-paiement-instantane-pi-spi" class="text-blue-500 hover:text-blue-600 break-words">bceao.int — lancement officiel de PI-SPI</a></li>
+        <li>Comparatif systèmes de paiement instantané (Wero, UPI, Pix, Visa) — <a href="https://mybusinessfuture.com/fr/wero-upi-pix-chaque-grande-economie-construit-son-propre-systeme-de-paiement-et/" class="text-blue-500 hover:text-blue-600 break-words">mybusinessfuture.com</a></li>
+        <li>iPay Money (Ifutur) — <a href="https://i-pay.money/" class="text-blue-500 hover:text-blue-600 break-words">i-pay.money</a></li>
+        <li>Ifutur — <a href="https://i-futur.com/" class="text-blue-500 hover:text-blue-600 break-words">i-futur.com</a></li>
+        <li>NITA x Banque Atlantique Niger, interopérabilité bancaire — <a href="https://www.agenceecofin.com/actualites-finance/2906-139687-niger-banque-atlantique-et-nita-renforcent-l-interoperabilite-entre-services-bancaires-et-paiement-mobile" class="text-blue-500 hover:text-blue-600 break-words">agenceecofin.com</a></li>
+      </ul>
+    </section>
+
+    <!-- Tags -->
+    <div class="mt-8 flex flex-wrap gap-2">
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#PISPI</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#BCEAO</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#Fintech</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#UEMOA</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#PaiementInstantané</span>
+    </div>
+
+    <!-- Pied de page article -->
+    <div class="mt-12 pt-6 border-t border-gray-300">
+      <a href="./index.html" class="inline-flex items-center text-blue-500 hover:text-blue-600 font-semibold">← Retour au blog</a>
+    </div>
+
+  </article>
+
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-6">
+      <p class="text-center">Copyright &copy; <span id="current-year">2023</span>
+      Web Developer Portfolio | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Menu mobile (bouton hamburger)
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', isOpen);
+    });
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
