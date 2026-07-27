@@ -1,0 +1,229 @@
+<!-- autheur: AWO CARLOS -->
+<!-- site web : https://awo-carlos.dev/ -->
+<!-- addresse mail:awocarlos55@gmail.com -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Les participants, ou PSP (3/30) || Blog || Awo Carlos</title>
+
+  <meta name="description" content="Qui sont les participants de PI-SPI ? Banques, EME, IMF, établissements de paiement — et surtout la distinction entre participant direct et participant indirect, et le mécanisme de sponsorisation dans STAR-UEMOA.">
+  <meta name="keywords" content="PISPI, BCEAO, Fintech, UEMOA, Paiement Instantané, PSP, participant direct, participant indirect, STAR-UEMOA, sponsorisation">
+  <meta name="author" content="Awo Carlos, awo-carlos.dev, awocarlos55@gmail.com">
+  <meta name="robots" content="index, follow" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg">
+    <div class="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+      <div class="flex items-center justify-between">
+        <a href="../index.html" class="text-xl font-semibold text-gray-700">Blog</a>
+        <button id="menu-btn" class="md:hidden rounded-lg focus:outline-none focus:shadow-outline-gray" aria-label="Toggle Menu" aria-expanded="false">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+            <path d="M0,20 h20 v-2.5 h-20 v2.5Z M0,11 h20 v-2.5 h-20 v2.5Z M0,2.5 h20 v-2.5 h-20 v2.5Z" />
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="md:flex md:items-center md:mt-0 hidden">
+        <a href="../index.html" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Home</a>
+        <a href="../index.html#works" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Works</a>
+        <a href="../index.html#skills" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Skills</a>
+        <a href="./index.html" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-900 font-semibold transition-colors duration-300">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Article -->
+  <article class="container mx-auto px-4 py-12 max-w-3xl">
+
+    <!-- Fil d'Ariane -->
+    <a href="./index.html" class="inline-flex items-center text-blue-500 hover:text-blue-600 font-semibold mb-6">← Retour au blog</a>
+
+    <!-- En-tête article -->
+    <header class="mb-10">
+      <span class="text-sm text-blue-500 font-semibold">Fintech · PI-SPI (BCEAO)</span>
+      <h1 class="text-4xl font-bold text-gray-800 mt-2 mb-4">Les participants, ou PSP <span class="text-gray-400 text-2xl align-middle">(3/30)</span></h1>
+      <div class="flex items-center text-sm text-gray-500">
+        <span>Par Carlos Awo</span>
+        <span class="mx-2">·</span>
+        <time datetime="2026-07-27">27 juillet 2026</time>
+        <span class="mx-2">·</span>
+        <span>6 min de lecture</span>
+      </div>
+    </header>
+
+    <!-- Image de couverture — à ajouter dans ./images/ puis décommenter
+    <img src="./images/les-participants-psp.png" alt="Les participants PI-SPI — participant direct, participant indirect et sponsorisation" class="w-full rounded-lg shadow-md mb-10">
+    -->
+
+    <!-- Corps de l'article -->
+    <div class="space-y-5 text-gray-700 leading-relaxed text-lg">
+      <p>
+        Dans la doc PI-SPI, un mot revient partout : <strong>participant</strong>. Parfois aussi appelé <strong>PSP</strong> — Prestataire de Services de Paiement.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">C'est quoi un PSP ?</h2>
+      <p>
+        Une entreprise agréée par la BCEAO pour offrir des services de paiement. Concrètement, dans PI-SPI, ça recouvre quatre types d'institutions : les <strong>banques</strong>, les <strong>émetteurs de monnaie électronique (EME)</strong>, les <strong>institutions de microfinance (IMF)</strong>, et les <strong>établissements de paiement (EP)</strong> — ma catégorie, avec Ifutur.
+      </p>
+      <p>
+        Chaque PSP connecté à PI-SPI devient un « participant » : une institution qui peut émettre et recevoir des paiements sur le réseau.
+      </p>
+      <p>
+        Un point important sur l'obligation qui va avec ce statut : un participant ne peut pas choisir de n'activer PI-SPI que sur certains comptes. Si un compte permet à un client d'émettre ou de recevoir des transferts — compte courant, épargne, ou tout autre type — ce compte <strong>doit</strong> être éligible aux services PI-SPI. Une banque ne peut pas, par exemple, activer PI-SPI uniquement sur les comptes courants et laisser ses comptes épargne en dehors : dès qu'un compte permet des transferts, il doit suivre la règle.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Participant direct vs participant indirect</h2>
+      <p>
+        C'est la distinction la plus importante à comprendre, et elle explique beaucoup de choses sur la façon dont un acteur comme Ifutur s'intègre au réseau.
+      </p>
+
+      <h3 class="text-xl font-bold text-gray-800 pt-4">Le participant direct</h3>
+      <p>
+        Selon la documentation participant PI-SPI, un participant direct dispose de <strong>son propre compte de règlement dans STAR-UEMOA</strong>, le système de règlement interbancaire de l'Union. Concrètement, ça veut dire qu'il peut recevoir et régler des fonds directement auprès de la BCEAO, sans intermédiaire. Il serait aussi responsable, seul, de constituer les garanties exigées pour couvrir ses opérations sur PI-SPI.
+      </p>
+      <p>
+        Un participant direct peut aussi jouer un rôle supplémentaire : <strong>sponsoriser</strong> d'autres participants qui n'ont pas ce compte de règlement.
+      </p>
+      <p>
+        Dans les faits, ce sont essentiellement les banques qui remplissent ce rôle. Une banque commerciale opérant dans l'UEMOA, en tant que participant direct, règle ses propres opérations client, et peut en plus porter le règlement d'un ou plusieurs autres participants.
+      </p>
+
+      <h3 class="text-xl font-bold text-gray-800 pt-4">Le participant indirect</h3>
+      <p>
+        Un participant indirect n'a pas de compte de règlement propre dans STAR-UEMOA. Il traite ses opérations sur PI-SPI normalement — collecte, paiements, alias — mais au moment de régler ses soldes en fin de cycle, il ne peut pas le faire lui-même : il passe par un participant direct qui le sponsorise.
+      </p>
+      <p>
+        C'est la situation de tout établissement de paiement. Les opérations avec les clients se traitent directement, mais le règlement final des soldes dans STAR-UEMOA passe par la <strong>banque sponsor</strong>, qui porte la responsabilité du règlement vis-à-vis de la BCEAO. Cette banque gère aussi un <strong>compte de cantonnement</strong> pour les fonds de l'établissement de paiement — une obligation réglementaire distincte, qui existe indépendamment de PI-SPI. Reste à clarifier si, dans la pratique, ce même compte sert aussi de compte de règlement PI-SPI, ou si les deux fonctions passent par des comptes séparés chez le sponsor.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Un exemple concret pour visualiser le lien entre les deux</h2>
+      <p>
+        Imagine trois participants indirects — un établissement de paiement, un émetteur de monnaie électronique, et une petite institution de microfinance — tous sponsorisés par la même banque.
+      </p>
+      <p>
+        Chaque jour, ces trois participants génèrent des opérations sur PI-SPI : paiements reçus, paiements envoyés, transferts entre clients. À la fin du cycle de compensation, chacun a un <strong>solde net</strong> — créditeur ou débiteur.
+      </p>
+      <p>
+        La banque sponsor, elle, ne règle pas trois opérations séparées avec la BCEAO. Elle <strong>consolide</strong> : son propre solde, plus celui de chacun des trois participants qu'elle sponsorise, et présente un règlement unique dans STAR-UEMOA. Vis-à-vis de la BCEAO, c'est elle l'interlocuteur unique — les trois participants indirects n'existent pas au niveau du règlement final, seulement au niveau des opérations.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Pourquoi cette architecture ?</h2>
+      <p>
+        Parce que tous les PSP n'ont pas vocation à détenir un compte de règlement dans le système central de la BCEAO — ça reste réservé, pour l'essentiel, aux acteurs bancaires, qui répondent à des exigences prudentielles et de capital que d'autres catégories de PSP n'ont pas. Le modèle sponsor/sponsorisé permet d'ouvrir l'accès à PI-SPI à des acteurs comme les EP ou certaines EME, sans complexifier l'architecture de règlement central ni exiger d'eux le même niveau d'exigences réglementaires qu'une banque.
+      </p>
+      <p>
+        Pour certaines institutions, ça change concrètement l'approche du marché : avant même de pouvoir se connecter à PI-SPI, il faut d'abord négocier et sécuriser un partenariat avec une banque sponsor. C'est une étape à part entière de la mise en conformité, pas juste un détail technique.
+      </p>
+    </div>
+
+    <!-- Glossaire -->
+    <section class="mt-12 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-xl font-bold text-gray-800 mb-4">Glossaire</h2>
+      <dl class="space-y-4 text-gray-700">
+        <div>
+          <dt class="font-semibold text-gray-800">PSP (Prestataire de Services de Paiement)</dt>
+          <dd>Entreprise agréée pour offrir des services de paiement.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Participant</dt>
+          <dd>Institution connectée à PI-SPI (banque, EME, IMF, ou établissement de paiement), directement ou indirectement.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Participant direct</dt>
+          <dd>Participant disposant d'un compte de règlement dans STAR-UEMOA, pouvant sponsoriser un ou plusieurs participants indirects.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Participant indirect</dt>
+          <dd>Participant sans compte de règlement propre dans STAR-UEMOA, sponsorisé par un participant direct qui prend en charge le règlement de ses soldes.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Sponsorisation</dt>
+          <dd>Opération par laquelle un participant indirect demande à un participant direct de prendre en charge son règlement dans PI-SPI.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Compte de cantonnement</dt>
+          <dd>Compte ouvert auprès d'une banque ou d'une institution de microfinance, sur lequel un établissement de paiement dépose les fonds cantonnés pour les protéger et les distinguer de ses propres fonds d'exploitation.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Cantonnement</dt>
+          <dd>Dispositif qui permet de dissocier les fonds appartenant à l'établissement de paiement, de ceux reçus des utilisateurs de services de paiement et d'autres prestataires de services de paiement pour l'exécution d'une opération de paiement.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Compensation multilatérale</dt>
+          <dd>Calcul périodique du solde net (créditeur ou débiteur) de chaque participant, à partir de l'ensemble de ses opérations avec tous les autres participants du réseau.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">STAR-UEMOA</dt>
+          <dd>Système de règlement brut en temps réel des transactions interbancaires de l'UEMOA.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- Sources -->
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-gray-800 mb-3">Sources</h2>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>Instruction N°001-01-2024 relative aux services de paiement dans l'UMOA, BCEAO — définition officielle du PSP (art. 38 : établissements de crédit, IMF, EME, établissements de paiement) et du cantonnement (art. 3, art. 48) — <a href="https://www.bceao.int/sites/default/files/2024-01/Instruction%20N%C2%B0001-01-2024%20relative%20aux%20services%20de%20paiement%20dans%20l'UMOA_0.pdf" class="text-blue-500 hover:text-blue-600 break-words">bceao.int — Instruction N°001-01-2024 (PDF)</a></li>
+        <li>Présentation du Répertoire des Alias de Comptes (RAC), BCEAO — définitions de participant, participant direct (compte de règlement STAR-UEMOA + rôle de sponsor), participant indirect — document projet</li>
+        <li>Règlement final dans STAR-UEMOA des opérations de PI-SPI, BCEAO — mécanisme de sponsorisation (le participant direct règle son solde et celui des participants qu'il sponsorise) et compensation multilatérale — document projet</li>
+        <li>Connexion à PI-SPI, communiqué officiel BCEAO — confirme publiquement les 4 catégories de participants (banques, EME, IMF, établissements de paiement) — <a href="https://www.bceao.int/fr/communique-presse/connexion-la-plateforme-interoperable-du-systeme-de-paiement-instantane-pi-spi-de" class="text-blue-500 hover:text-blue-600 break-words">bceao.int — communiqué de presse</a></li>
+        <li>Page « À propos » PI-SPI (BCEAO) — <a href="https://pispi.bceao.int/propos" class="text-blue-500 hover:text-blue-600 break-words">pispi.bceao.int/propos</a></li>
+      </ul>
+    </section>
+
+    <!-- Tags -->
+    <div class="mt-8 flex flex-wrap gap-2">
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#PISPI</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#BCEAO</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#Fintech</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#UEMOA</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#PaiementInstantané</span>
+    </div>
+
+    <!-- Pied de page article -->
+    <div class="mt-12 pt-6 border-t border-gray-300">
+      <a href="./index.html" class="inline-flex items-center text-blue-500 hover:text-blue-600 font-semibold">← Retour au blog</a>
+    </div>
+
+  </article>
+
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-6">
+      <p class="text-center">Copyright &copy; <span id="current-year">2023</span>
+      Web Developer Portfolio | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Menu mobile (bouton hamburger)
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', isOpen);
+    });
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
