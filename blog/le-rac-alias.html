@@ -1,0 +1,203 @@
+<!-- autheur: AWO CARLOS -->
+<!-- site web : https://awo-carlos.dev/ -->
+<!-- addresse mail:awocarlos55@gmail.com -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Le RAC, ou comment PI-SPI simplifie l'identification d'un compte (4/30) || Blog || Awo Carlos</title>
+
+  <meta name="description" content="Le Répertoire des Alias Centralisé de PI-SPI : payer sans partager son numéro de compte. Les trois types d'alias (SHID, MBNO, MCOD), leur génération, et la procédure de revendication.">
+  <meta name="keywords" content="PISPI, BCEAO, Fintech, UEMOA, Paiement Instantané, RAC, alias, SHID, MBNO, MCOD, QR code, USSD">
+  <meta name="author" content="Awo Carlos, awo-carlos.dev, awocarlos55@gmail.com">
+  <meta name="robots" content="index, follow" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg">
+    <div class="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+      <div class="flex items-center justify-between">
+        <a href="../index.html" class="text-xl font-semibold text-gray-700">Blog</a>
+        <button id="menu-btn" class="md:hidden rounded-lg focus:outline-none focus:shadow-outline-gray" aria-label="Toggle Menu" aria-expanded="false">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+            <path d="M0,20 h20 v-2.5 h-20 v2.5Z M0,11 h20 v-2.5 h-20 v2.5Z M0,2.5 h20 v-2.5 h-20 v2.5Z" />
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="md:flex md:items-center md:mt-0 hidden">
+        <a href="../index.html" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Home</a>
+        <a href="../index.html#works" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Works</a>
+        <a href="../index.html#skills" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Skills</a>
+        <a href="./index.html" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-900 font-semibold transition-colors duration-300">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Article -->
+  <article class="container mx-auto px-4 py-12 max-w-3xl">
+
+    <!-- Fil d'Ariane -->
+    <a href="./index.html" class="inline-flex items-center text-blue-500 hover:text-blue-600 font-semibold mb-6">← Retour au blog</a>
+
+    <!-- En-tête article -->
+    <header class="mb-10">
+      <span class="text-sm text-blue-500 font-semibold">Fintech · PI-SPI (BCEAO)</span>
+      <h1 class="text-4xl font-bold text-gray-800 mt-2 mb-4">Le RAC, ou comment PI-SPI simplifie l'identification d'un compte <span class="text-gray-400 text-2xl align-middle">(4/30)</span></h1>
+      <div class="flex items-center text-sm text-gray-500">
+        <span>Par Carlos Awo</span>
+        <span class="mx-2">·</span>
+        <time datetime="2026-07-27">27 juillet 2026</time>
+        <span class="mx-2">·</span>
+        <span>5 min de lecture</span>
+      </div>
+    </header>
+
+    <!-- Image de couverture — à ajouter dans ./images/ puis décommenter
+    <img src="./images/le-rac-alias.png" alt="Le RAC — Répertoire des Alias Centralisé de PI-SPI" class="w-full rounded-lg shadow-md mb-10">
+    -->
+
+    <!-- Corps de l'article -->
+    <div class="space-y-5 text-gray-700 leading-relaxed text-lg">
+      <p>
+        Dans un virement classique, pour payer quelqu'un, il faut connaître son numéro de compte ou son IBAN. Le bénéficiaire doit donc partager une information sensible, et le payeur doit la saisir correctement — deux sources de friction et d'erreurs à chaque paiement.
+      </p>
+      <p>
+        Le <strong>RAC (Répertoire des Alias Centralisé)</strong> résout ce problème. C'est le service central de PI-SPI qui associe un <strong>alias</strong> — un identifiant simple choisi ou attribué au client — au compte réel du client, sans jamais exposer les coordonnées bancaires. C'est une seule source de vérité pour tout le réseau, plutôt que chaque participant qui garderait sa propre copie potentiellement désynchronisée.
+      </p>
+      <p>
+        Concrètement, un alias porte plusieurs informations liées au client : nom, prénom, pays de résidence, ville, adresse, numéro de téléphone, email, et selon les cas, numéro de passeport ou identification nationale. Toutes ces données peuvent être mises à jour après création — sauf l'alias lui-même, qui reste la clé stable.
+      </p>
+      <p>
+        Le RAC gère <strong>trois types d'alias</strong>, chacun avec un usage et une mécanique de génération différents :
+      </p>
+      <ul class="list-none space-y-2 pl-1">
+        <li>→ Adresse de paiement (code <strong>SHID</strong>)</li>
+        <li>→ Numéro de téléphone mobile (code <strong>MBNO</strong>)</li>
+        <li>→ Identifiant de compte marchand (code <strong>MCOD</strong>)</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Adresse de paiement (SHID)</h2>
+      <p>
+        Le SHID (<em>System-Generated Hash ID</em>), c'est le plus simple à comprendre, parce qu'il n'y a rien à retenir ni à choisir : une clé aléatoire unique de 36 caractères alphanumériques (format UUID v4), générée automatiquement par le système — pas par le client ni le PSP. C'est ce type d'alias qu'on retrouve encodé dans un <strong>QR code</strong> de paiement : personne ne le tape à la main, il est fait pour être scanné.
+      </p>
+      <p>
+        Concrètement, quand un commerçant affiche un QR code à sa caisse, ce code contient un SHID. Le client scanne, l'appli du client interroge le RAC avec ce SHID, récupère les informations du compte marchand, et le paiement se prépare — sans qu'aucune des deux parties n'ait eu à taper ou communiquer quoi que ce soit manuellement.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Numéro de téléphone mobile (MBNO)</h2>
+      <p>
+        C'est l'alias le plus intuitif : pour envoyer de l'argent à un proche, tu saisis simplement son numéro de téléphone, exactement comme sur une app mobile money classique — aucun apprentissage nécessaire pour l'utilisateur final.
+      </p>
+      <p>
+        Particularité importante : ce type d'alias doit être <strong>unique dans tout le répertoire</strong>, à l'échelle du réseau entier — deux clients ne peuvent pas revendiquer le même numéro, quel que soit leur PSP. Ça pose une vraie question dans un contexte comme le nôtre : que se passe-t-il quand un client change d'opérateur téléphonique et que son ancien numéro est réattribué à quelqu'un d'autre après une période d'inactivité ? L'alias associé à ce numéro ne se met pas à jour tout seul — il reste enregistré au nom de l'ancien titulaire tant que personne n'agit.
+      </p>
+      <p>
+        C'est là qu'intervient le processus de <strong>revendication</strong>. Le nouveau titulaire du numéro dépose une demande de revendication auprès de son PSP, en fournissant uniquement l'alias contesté. La demande est enregistrée et transmise pour traitement, puis acceptée (transfert de propriété de l'alias) ou rejetée. Ce mécanisme est indispensable dans une région où le taux de rotation des numéros de téléphone est significatif.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Identifiant de compte marchand (MCOD)</h2>
+      <p>
+        Un identifiant choisi par le PSP pour équiper un commerçant, réservé aux parcours de paiement <strong>USSD</strong>. La valeur doit être générée par le participant, qui l'enregistre ensuite dans le RAC — et elle doit être unique. Contrairement au SHID, ce n'est pas le système qui génère la valeur : c'est le PSP qui la choisit et en garantit l'unicité avant l'enregistrement.
+      </p>
+      <p>
+        Conséquence pratique : côté PSP, ça donne une vraie marge de manœuvre produit — on peut construire une convention de nommage cohérente pour tous ses commerçants, plutôt que de laisser un code arbitraire. Mais il faut valider soi-même le format et l'unicité avant tout enregistrement dans le RAC, puisque le répertoire est partagé par tout le réseau.
+      </p>
+      <p>
+        Contrairement au MBNO, il n'y a <strong>pas de procédure de revendication</strong> pour le MCOD. Logique : le conflit potentiel sur un numéro de téléphone vient d'un tiers externe à PI-SPI (l'opérateur télécom qui recycle un numéro). Le MCOD, lui, est entièrement choisi et généré par le participant avant enregistrement — aucun tiers externe ne peut se l'approprier après coup, donc rien à « revendiquer ».
+      </p>
+    </div>
+
+    <!-- Glossaire -->
+    <section class="mt-12 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-xl font-bold text-gray-800 mb-4">Glossaire</h2>
+      <dl class="space-y-4 text-gray-700">
+        <div>
+          <dt class="font-semibold text-gray-800">Alias</dt>
+          <dd>Identifiant choisi ou attribué à un client (numéro de téléphone, code marchand, ou adresse générée) qui permet de recevoir des paiements sans révéler les détails de son compte.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">RAC (Répertoire des Alias Centralisé)</dt>
+          <dd>Service centralisé de PI qui stocke la correspondance entre chaque alias et le compte client associé.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">SHID (System-Generated Hash ID)</dt>
+          <dd>Code désignant une adresse de paiement — clé aléatoire de 36 caractères alphanumériques (UUID v4) générée par le système, utilisée notamment dans les QR codes.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">MBNO</dt>
+          <dd>Code désignant un alias de type numéro de téléphone mobile, unique à l'échelle de tout le réseau PI-SPI.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">MCOD</dt>
+          <dd>Code désignant un alias de type identifiant de compte marchand, réservé aux parcours de paiement USSD, dont la valeur est générée et l'unicité garantie par le participant avant enregistrement dans le RAC.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Revendication d'alias</dt>
+          <dd>Procédure permettant à un client de contester la propriété d'un alias déjà enregistré au nom d'un autre client (typiquement un numéro de téléphone réattribué), initiée en fournissant uniquement l'alias contesté.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- Sources -->
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-gray-800 mb-3">Sources</h2>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>Comprendre les alias de compte PI-SPI, guide développeur BCEAO — <a href="https://developer.pispi.bceao.int/guides/alias-overview" class="text-blue-500 hover:text-blue-600 break-words">developer.pispi.bceao.int/guides/alias-overview</a></li>
+      </ul>
+    </section>
+
+    <!-- Tags -->
+    <div class="mt-8 flex flex-wrap gap-2">
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#PISPI</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#BCEAO</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#Fintech</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#UEMOA</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#PaiementInstantané</span>
+    </div>
+
+    <!-- Pied de page article -->
+    <div class="mt-12 pt-6 border-t border-gray-300">
+      <a href="./index.html" class="inline-flex items-center text-blue-500 hover:text-blue-600 font-semibold">← Retour au blog</a>
+    </div>
+
+  </article>
+
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-6">
+      <p class="text-center">Copyright &copy; <span id="current-year">2023</span>
+      Web Developer Portfolio | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Menu mobile (bouton hamburger)
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', isOpen);
+    });
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
