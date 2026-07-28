@@ -1,0 +1,209 @@
+<!-- autheur: AWO CARLOS -->
+<!-- site web : https://awo-carlos.dev/ -->
+<!-- addresse mail:awocarlos55@gmail.com -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RAC : ce qu'il faut faire (et ne pas faire) côté architecture (5/30) || Blog || Awo Carlos</title>
+
+  <meta name="description" content="Interdiction de cache, règle de stockage, contrôles MCOD, irréversibilité du SHID, quota d'alias : ce que le RAC de PI-SPI impose concrètement quand on construit l'intégration.">
+  <meta name="keywords" content="PISPI, BCEAO, Fintech, UEMOA, Paiement Instantané, RAC, alias, architecture, cache, SHID, MCOD, endToEndId">
+  <meta name="author" content="Awo Carlos, awo-carlos.dev, awocarlos55@gmail.com">
+  <meta name="robots" content="index, follow" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg">
+    <div class="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+      <div class="flex items-center justify-between">
+        <a href="../index.html" class="text-xl font-semibold text-gray-700">Blog</a>
+        <button id="menu-btn" class="md:hidden rounded-lg focus:outline-none focus:shadow-outline-gray" aria-label="Toggle Menu" aria-expanded="false">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+            <path d="M0,20 h20 v-2.5 h-20 v2.5Z M0,11 h20 v-2.5 h-20 v2.5Z M0,2.5 h20 v-2.5 h-20 v2.5Z" />
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="md:flex md:items-center md:mt-0 hidden">
+        <a href="../index.html" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Home</a>
+        <a href="../index.html#works" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Works</a>
+        <a href="../index.html#skills" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Skills</a>
+        <a href="./index.html" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-900 font-semibold transition-colors duration-300">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Article -->
+  <article class="container mx-auto px-4 py-12 max-w-3xl">
+
+    <!-- Fil d'Ariane -->
+    <a href="./index.html" class="inline-flex items-center text-blue-500 hover:text-blue-600 font-semibold mb-6">← Retour au blog</a>
+
+    <!-- En-tête article -->
+    <header class="mb-10">
+      <span class="text-sm text-blue-500 font-semibold">Fintech · PI-SPI (BCEAO)</span>
+      <h1 class="text-4xl font-bold text-gray-800 mt-2 mb-4">RAC : ce qu'il faut faire (et ne pas faire) côté architecture <span class="text-gray-400 text-2xl align-middle">(5/30)</span></h1>
+      <div class="flex items-center text-sm text-gray-500">
+        <span>Par Carlos Awo</span>
+        <span class="mx-2">·</span>
+        <time datetime="2026-07-28">28 juillet 2026</time>
+        <span class="mx-2">·</span>
+        <span>8 min de lecture</span>
+      </div>
+    </header>
+
+    <!-- Image de couverture — à ajouter dans ./images/ puis décommenter
+    <img src="./images/rac-architecture.png" alt="RAC — règles d'architecture : pas de cache, stockage restreint, contrôles MCOD" class="w-full rounded-lg shadow-md mb-10">
+    -->
+
+    <!-- Corps de l'article -->
+    <div class="space-y-5 text-gray-700 leading-relaxed text-lg">
+      <p>
+        Le <a href="./le-rac-alias.html" class="text-blue-500 hover:text-blue-600 font-semibold">post précédent</a> expliquait ce qu'est le RAC et les trois types d'alias. Aujourd'hui, on regarde le sujet côté architecture : ce que ça implique concrètement quand on construit l'intégration, avec des exemples pour chaque point.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">L'interdiction de cache, et pourquoi elle est aussi stricte</h2>
+      <p>
+        Premier réflexe à avoir : interroger le RAC <strong>avant chaque transaction</strong>, sans exception. Aucune mise en cache du résultat d'une recherche d'alias n'est autorisée, même si le même alias a été recherché une minute plus tôt — le RAC reste la seule source de vérité du réseau, et un résultat mis en cache peut très vite devenir obsolète.
+      </p>
+      <p>
+        Un exemple pour visualiser le risque. Un client A recherche l'alias de son ami B à 14h00 pour lui envoyer 5 000 FCFA — le système récupère les informations du compte de B et les affiche. À 14h05, B ferme ce compte et transfère son alias vers une nouvelle banque. À 14h10, A refait un paiement au même alias, en pensant réutiliser l'information qu'il a vue cinq minutes plus tôt. Si le système avait mis en cache cette information, le paiement partirait vers un compte qui n'existe plus, ou pire, vers un nouveau propriétaire de cet alias si B l'a entretemps libéré et que quelqu'un d'autre l'a récupéré par revendication.
+      </p>
+      <p>
+        Pourquoi c'est aussi strict : un alias n'est pas figé. Un client peut fermer son compte, changer de banque, ou perdre un alias suite à une revendication — par exemple si son numéro de téléphone a été réattribué après une résiliation. Un participant qui garde en cache une réponse RAC vieille d'une heure ou d'un jour risque d'envoyer l'argent vers un compte qui n'est plus le bon, voire vers le compte de quelqu'un d'autre si l'alias a changé de propriétaire entretemps. Et dans un système de paiement instantané, une fois l'argent parti, il n'y a pas de retour en arrière simple : l'erreur n'est détectée qu'après coup, quand il est déjà trop tard. Un cache introduit aussi une <strong>fenêtre d'exploitation</strong> : un alias affiché comme valide peut ne plus l'être au moment réel du paiement.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">La recherche d'alias comme partie du flux, pas comme fonction utilitaire</h2>
+      <p>
+        Ça a une conséquence directe sur la façon de concevoir la recherche d'alias elle-même : ce n'est pas un simple appel synchrone isolé, même pour un cas d'usage qui paraît trivial. Puisque chaque recherche doit être fraîche et vérifiée en temps réel, elle devient une <strong>étape à part entière du parcours de paiement</strong>, pas une simple lecture qu'on peut économiser.
+      </p>
+      <p>
+        Concrètement, ça veut dire qu'un développeur ne devrait jamais écrire une fonction générique du type <code class="bg-gray-200 px-1 rounded text-base">resolveAlias(cle)</code> appelée depuis dix endroits différents dans le code sans lien avec une transaction précise. La bonne approche : chaque recherche d'alias fait partie intégrante d'un flux de paiement identifié, avec son propre identifiant de transaction (<code class="bg-gray-200 px-1 rounded text-base">endToEndId</code>), pensé pour être corrélé à la transaction de paiement en cours. Exemple concret : le client initie un paiement → le système génère un <code class="bg-gray-200 px-1 rounded text-base">endToEndId</code> pour cette transaction → la recherche d'alias est effectuée avec cet identifiant → le résultat est affiché au client pour confirmation → si le client valide dans la foulée, le paiement s'exécute avec cette même corrélation. Si le client met dix minutes à confirmer, une bonne architecture doit pouvoir décider de relancer une recherche fraîche plutôt que de faire confiance à un résultat qui traîne depuis trop longtemps.
+      </p>
+      <p>
+        Autant le prévoir dès le départ dans l'architecture, avec sa propre gestion d'état et de corrélation, plutôt que de le traiter comme une fonction utilitaire qu'on appelle sans y réfléchir davantage.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">La règle de stockage, à contre-courant des réflexes habituels</h2>
+      <p>
+        Du côté du stockage, la règle est stricte et va à l'encontre de nos réflexes habituels : on n'a le droit de conserver <strong>que l'alias de son propre client</strong>, et seulement au moment de sa création. Un alias consulté lors d'une recherche — celui d'un tiers, par exemple pour valider un paiement — ne doit jamais persister après la transaction.
+      </p>
+      <p>
+        Exemple concret. Un client de chez nous, Moussa, veut payer un commerçant en utilisant l'alias affiché sur son QR code. On interroge le RAC avec ce SHID, et la réponse revient : nom du commerçant, numéro de compte, banque. Cette information, on a le droit de l'utiliser le temps d'afficher « Vous payez : Boutique Aïcha » à Moussa et d'exécuter la transaction. Une fois le paiement effectué, cette fiche du commerçant ne doit plus exister nulle part dans notre système : ni dans une table <code class="bg-gray-200 px-1 rounded text-base">alias_recherches</code>, ni dans un historique de transaction qui garderait le détail complet plutôt qu'une référence, ni dans un log de debug qui aurait tout capturé « au cas où ». Seule la transaction elle-même (montant, date, référence) peut être conservée — pas la fiche d'identité du commerçant récupérée depuis le RAC.
+      </p>
+      <p>
+        Ce qu'on a le droit de garder, en revanche, c'est différent : si Moussa crée son propre alias chez nous, cette donnée-là, on peut la stocker durablement, puisque c'est l'alias de notre propre client.
+      </p>
+      <p>
+        La vigilance à avoir : ce genre de fuite de stockage se glisse rarement dans la base de données principale — elle se cache plutôt dans les <strong>logs applicatifs de debug</strong>, les <strong>caches génériques</strong>, ou les <strong>outils de monitoring</strong> qui capturent tout sans distinction. Un audit doit donc couvrir ces trois zones, pas seulement le schéma de base de données.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Le MCOD, deux vérifications avant l'appel API</h2>
+      <p>
+        Sur le MCOD spécifiquement, deux points à ne pas rater avant même l'appel API. D'abord, vérifier que le client est bien une <strong>personne morale</strong>, puisque ce type d'alias n'est pas attribuable aux particuliers — un contrôle métier en amont évite un rejet inutile. Ensuite, valider soi-même le <strong>format et l'unicité</strong> de la valeur choisie, puisque c'est le participant qui la génère, pas le système.
+      </p>
+      <p>
+        Exemple concret. On onboarde un nouveau commerçant, Chez Fatou, pour lui créer un alias MCOD. Premier réflexe attendu du système : vérifier dans notre propre base que Fatou est enregistrée comme personne morale ou commerçante — pas comme particulier. Si ce contrôle manque, on envoie la demande au RAC, qui la rejette pour non-conformité, et Fatou attend son alias pour rien pendant qu'on corrige l'erreur.
+      </p>
+      <p>
+        Deuxième étape : on génère la valeur du MCOD nous-mêmes, par exemple à partir d'un compteur interne (<code class="bg-gray-200 px-1 rounded text-base">MCOD-0245</code>). Le risque classique ici : ce compteur redémarre à zéro après une purge de base de test en environnement de recette, et on se retrouve à renvoyer <code class="bg-gray-200 px-1 rounded text-base">MCOD-0001</code> — une valeur déjà attribuée à un tout premier commerçant onboardé un an plus tôt. Le RAC rejette la demande pour doublon, Fatou est bloquée une deuxième fois, et il faut un système de retry avec une nouvelle valeur pour débloquer la situation.
+      </p>
+      <p>
+        Le point qui aggrave ce genre d'incident : contrairement au MBNO, il n'existe <strong>pas de procédure de revendication</strong> pour un conflit MCOD. Pour un numéro de téléphone, un mécanisme existe pour trancher qui a droit à l'alias. Pour un MCOD, rien de tel — le conflit doit être évité à la source, pas résolu après coup. Ça veut dire que le contrôle d'unicité doit être fiable dès la conception (un compteur qui ne repart jamais à zéro, ou mieux, une vérification d'existence auprès du RAC avant chaque génération), pas quelque chose qu'on rattrape après avoir vu l'erreur en production.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Le SHID est irréversible : un piège opérationnel plus que technique</h2>
+      <p>
+        Un SHID supprimé ne peut pas être restauré. Si on en recrée un pour le même compte, une nouvelle valeur aléatoire est générée, et toute référence à l'ancien SHID (facture, QR code déjà imprimé) devient invalide du jour au lendemain.
+      </p>
+      <p>
+        Exemple concret : un commerçant fait imprimer 500 exemplaires d'un QR code de caisse contenant son SHID. Six mois plus tard, un développeur, en nettoyant une base de test, supprime par erreur cet alias en pensant qu'il n'est plus utilisé. Un nouveau SHID est généré automatiquement à la prochaine création — mais les 500 QR codes physiques déjà distribués pointent vers une adresse de paiement qui n'existe plus. Le commerçant se retrouve avec des clients qui scannent un code invalide, sans avertissement préalable.
+      </p>
+      <p>
+        La leçon : la suppression d'un SHID ne devrait jamais être une opération anodine dans l'outillage interne — elle mérite une confirmation explicite et, si possible, une vérification que le compte associé n'est vraiment plus actif avant d'y toucher. Penser aussi à <strong>journaliser chaque opération sur un alias</strong> — clé, type, compte concerné, à la création comme à la suppression — pour reconstituer un historique fiable en cas de litige avec un commerçant qui affirme n'avoir rien demandé.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Le quota d'alias, une limite à anticiper plutôt qu'à découvrir</h2>
+      <p>
+        Dernier point, plus opérationnel qu'architectural mais tout aussi important : surveiller le <strong>quota d'alias par compte</strong>. Une personne morale peut en créer plusieurs, dans une limite fixée par défaut par le participant (généralement 20, ajustable).
+      </p>
+      <p>
+        Exemple : une chaîne de boutiques qui grandit progressivement, ouvrant un nouveau point de vente chaque mois avec son propre MCOD, peut atteindre la limite de 20 alias après moins de deux ans d'activité sans que personne ne l'ait anticipé. Si la 21<sup>e</sup> tentative de création échoue en pleine ouverture d'un nouveau magasin, l'impact commercial est immédiat. Une alerte proactive avant d'atteindre ce plafond évite ce genre de blocage — et un nettoyage régulier des alias inutilisés (points de vente fermés, anciens tests) garde de la marge plutôt que de découvrir la limite au pire moment.
+      </p>
+    </div>
+
+    <!-- Glossaire -->
+    <section class="mt-12 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-xl font-bold text-gray-800 mb-4">Glossaire</h2>
+      <dl class="space-y-4 text-gray-700">
+        <div>
+          <dt class="font-semibold text-gray-800">endToEndId</dt>
+          <dd>Identifiant unique attribué à une transaction de paiement, utilisé pour corréler toutes les opérations (dont la recherche d'alias) qui s'y rattachent.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- Sources -->
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-gray-800 mb-3">Sources</h2>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>Gérer vos alias via l'API Business, guide développeur BCEAO — <a href="https://developer.pispi.bceao.int/guides/alias-gerer" class="text-blue-500 hover:text-blue-600 break-words">developer.pispi.bceao.int/guides/alias-gerer</a></li>
+        <li>Comprendre les alias de compte PI-SPI, guide développeur BCEAO — <a href="https://developer.pispi.bceao.int/guides/alias-overview" class="text-blue-500 hover:text-blue-600 break-words">developer.pispi.bceao.int/guides/alias-overview</a></li>
+      </ul>
+    </section>
+
+    <!-- Tags -->
+    <div class="mt-8 flex flex-wrap gap-2">
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#PISPI</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#BCEAO</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#Fintech</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#UEMOA</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#PaiementInstantané</span>
+    </div>
+
+    <!-- Pied de page article -->
+    <div class="mt-12 pt-6 border-t border-gray-300">
+      <a href="./index.html" class="inline-flex items-center text-blue-500 hover:text-blue-600 font-semibold">← Retour au blog</a>
+    </div>
+
+  </article>
+
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-6">
+      <p class="text-center">Copyright &copy; <span id="current-year">2023</span>
+      Web Developer Portfolio | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Menu mobile (bouton hamburger)
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', isOpen);
+    });
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
