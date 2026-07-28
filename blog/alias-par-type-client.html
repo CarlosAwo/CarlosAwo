@@ -1,0 +1,210 @@
+<!-- autheur: AWO CARLOS -->
+<!-- site web : https://awo-carlos.dev/ -->
+<!-- addresse mail:awocarlos55@gmail.com -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Quel alias pour quel type de client ? (6/30) || Blog || Awo Carlos</title>
+
+  <meta name="description" content="Ce qui détermine les alias PI-SPI qu'un client peut créer, ce n'est pas la catégorie du participant mais celle du client : personne physique, commerçante, personne morale ou administration publique.">
+  <meta name="keywords" content="PISPI, BCEAO, Fintech, UEMOA, Paiement Instantané, alias, SHID, MBNO, MCOD, USSD, personne morale, préconfirmation">
+  <meta name="author" content="Awo Carlos, awo-carlos.dev, awocarlos55@gmail.com">
+  <meta name="robots" content="index, follow" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg">
+    <div class="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+      <div class="flex items-center justify-between">
+        <a href="../index.html" class="text-xl font-semibold text-gray-700">Blog</a>
+        <button id="menu-btn" class="md:hidden rounded-lg focus:outline-none focus:shadow-outline-gray" aria-label="Toggle Menu" aria-expanded="false">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+            <path d="M0,20 h20 v-2.5 h-20 v2.5Z M0,11 h20 v-2.5 h-20 v2.5Z M0,2.5 h20 v-2.5 h-20 v2.5Z" />
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="md:flex md:items-center md:mt-0 hidden">
+        <a href="../index.html" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Home</a>
+        <a href="../index.html#works" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Works</a>
+        <a href="../index.html#skills" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-700 hover:text-gray-900 transition-colors duration-300">Skills</a>
+        <a href="./index.html" class="block mt-4 md:inline-block md:mt-0 md:ml-6 text-gray-900 font-semibold transition-colors duration-300">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Article -->
+  <article class="container mx-auto px-4 py-12 max-w-3xl">
+
+    <!-- Fil d'Ariane -->
+    <a href="./index.html" class="inline-flex items-center text-blue-500 hover:text-blue-600 font-semibold mb-6">← Retour au blog</a>
+
+    <!-- En-tête article -->
+    <header class="mb-10">
+      <span class="text-sm text-blue-500 font-semibold">Fintech · PI-SPI (BCEAO)</span>
+      <h1 class="text-4xl font-bold text-gray-800 mt-2 mb-4">Quel alias pour quel type de client ? <span class="text-gray-400 text-2xl align-middle">(6/30)</span></h1>
+      <div class="flex items-center text-sm text-gray-500">
+        <span>Par Carlos Awo</span>
+        <span class="mx-2">·</span>
+        <time datetime="2026-07-28">28 juillet 2026</time>
+        <span class="mx-2">·</span>
+        <span>7 min de lecture</span>
+      </div>
+    </header>
+
+    <!-- Image de couverture -->
+    <img src="./images/alias-par-type-client.png" alt="Quel alias pour quel type de client ? — les quatre catégories PI-SPI (personne physique, personne physique commerçante, personne morale, administration publique) et les alias disponibles pour chacune, autour du RAC" class="w-full rounded-lg shadow-md mb-10">
+
+    <!-- Corps de l'article -->
+    <div class="space-y-5 text-gray-700 leading-relaxed text-lg">
+      <p>
+        On a vu <a href="./le-rac-alias.html" class="text-blue-500 hover:text-blue-600 font-semibold">les trois types d'alias</a> que gère le RAC. Ce qui détermine lesquels un client peut créer, ce n'est pas la catégorie du participant (banque, EME, IMF, EP peuvent tous proposer les mêmes alias) — c'est la <strong>catégorie du client lui-même</strong>.
+      </p>
+      <p>
+        PI-SPI classe les clients en <strong>4 catégories</strong> :
+      </p>
+      <ul class="list-none space-y-2 pl-1">
+        <li>→ <strong>Personne physique (type P)</strong> — un particulier classique</li>
+        <li>→ <strong>Personne physique commerçante (type C)</strong> — un particulier avec une activité commerciale</li>
+        <li>→ <strong>Personne morale (type B)</strong> — une entreprise</li>
+        <li>→ <strong>Structure d'administration publique (type G)</strong> — un organisme gouvernemental</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Ce que voit un particulier</h2>
+      <p>
+        Pour une personne physique, le choix se limite à <strong>deux options</strong>, comme le montrent les captures ci-dessous : l'adresse de paiement (le SHID, généré automatiquement) ou le numéro de téléphone (le MBNO). Mais attention, ce n'est pas un choix à somme égale : opter pour un SHID donne <strong>un seul alias</strong>, alors qu'opter pour un MBNO en donne <strong>deux</strong> — le SHID est de toute façon généré automatiquement en plus, pour les paiements par QR code. Une personne physique ne peut pas créer de MCOD : ce type d'alias ne lui est tout simplement pas accessible.
+      </p>
+
+      <!-- Captures d'écran du parcours de création d'alias -->
+      <figure class="py-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center">
+          <img src="./images/create_alias_1.jpeg"
+               alt="Écran « Créer alias » chez un premier participant : deux tuiles à choisir, « Adresse de paiement » et « Numéro de téléphone », puis un bouton Suivant."
+               loading="lazy" class="w-full max-w-[260px] rounded-lg shadow-md border border-gray-200">
+          <img src="./images/create_alias_2.jpeg"
+               alt="Écran « Créer un alias » chez un second participant : un champ « Compte à lier » à sélectionner, puis le type d'alias en boutons radio — adresse de paiement ou numéro de téléphone."
+               loading="lazy" class="w-full max-w-[260px] rounded-lg shadow-md border border-gray-200">
+        </div>
+        <figcaption class="text-sm text-gray-500 mt-4 text-center">
+          Le même parcours de création d'alias, chez deux participants différents. À droite, le champ « Compte à lier » apparaît avant le choix du type d'alias.
+        </figcaption>
+      </figure>
+
+      <p>
+        Avant même de choisir le type d'alias, il faut d'abord sélectionner le <strong>compte auquel l'alias va être lié</strong> — on le voit bien sur la seconde capture, avec le champ « Compte à lier » affiché avant même le choix du type d'alias. C'est un point qui mérite d'être répété : <strong>l'alias n'est pas le compte</strong>, il y est simplement rattaché. Le compte existe indépendamment, avec son solde et ses détails bancaires gérés par le participant qui le tient ; l'alias vient s'y greffer comme un identifiant public, révocable ou remplaçable, sans jamais se substituer au compte lui-même.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Ce que voient les trois autres catégories</h2>
+      <p>
+        Pour la personne physique commerçante, la personne morale, et l'administration publique, le choix porte sur le <strong>SHID et le MCOD</strong>. Le MBNO n'est pas disponible pour elles : logique, puisque cet alias est rattaché à un numéro de téléphone individuel, pas à une structure.
+      </p>
+      <p>
+        Une différence importante de <strong>volume</strong> : une personne physique reste sur une logique d'un seul choix initial (SHID seul, ou MBNO qui entraîne un SHID). Les trois autres catégories peuvent créer <strong>plusieurs alias pour un même compte</strong>, avec une limite fixée par défaut à 20, ajustable auprès du participant si le besoin dépasse ce quota — utile par exemple pour une entreprise qui veut un MCOD différent par point de vente.
+      </p>
+      <p>
+        Deux autres différences pratiques valent la peine d'être connues. D'abord, pour une personne morale, le champ <strong>Ville est obligatoire</strong> à la création de l'alias — il ne l'est pas pour un particulier. Ensuite, la <strong>préconfirmation</strong> (une confirmation préalable des réceptions de transferts, avant que les fonds soient définitivement crédités) n'est disponible que pour les personnes morales — un particulier ne peut pas activer cette option.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-800 pt-6">Le MCOD, pensé pour l'USSD</h2>
+      <p>
+        Le MCOD est pensé pour les parcours de paiement <strong>USSD</strong> — ces menus accessibles par simple code sur un téléphone classique, sans app ni connexion data, l'un des trois canaux officiels de PI-SPI aux côtés de l'app mobile et du web.
+      </p>
+      <p>
+        Attention à ne pas <strong>confondre canal et type d'alias</strong> : un particulier qui crée son propre alias depuis un menu USSD obtient un SHID ou un MBNO, exactement comme s'il utilisait une app — le canal USSD ne restreint pas le type d'alias qu'un particulier peut créer. Le MCOD entre en jeu de l'autre côté de la transaction, quand ce même client veut payer un marchand : un menu USSD navigue avec des chiffres, pas avec un scan de QR code ni une longue chaîne de 36 caractères comme le SHID. Un identifiant marchand court, choisi par le participant, est ce qui rend possible de désigner un commerçant dans un menu USSD sans que le client ait à taper une adresse de paiement illisible sur un clavier numérique.
+      </p>
+      <p>
+        Ça résume bien la logique d'ensemble : le SHID et le MBNO sont les alias qu'un particulier choisit lui-même. Le MCOD, lui, est généré et attribué par le participant pour un client professionnel — une décision produit qui se prend en amont, pas une option que l'utilisateur sélectionne dans une liste.
+      </p>
+    </div>
+
+    <!-- Glossaire -->
+    <section class="mt-12 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-xl font-bold text-gray-800 mb-4">Glossaire</h2>
+      <dl class="space-y-4 text-gray-700">
+        <div>
+          <dt class="font-semibold text-gray-800">Client de type P</dt>
+          <dd>Personne physique, particulier.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Client de type C</dt>
+          <dd>Personne physique commerçante.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Client de type B</dt>
+          <dd>Personne morale (entreprise).</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-800">Client de type G</dt>
+          <dd>Structure relevant de l'administration publique.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- Sources -->
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-gray-800 mb-3">Sources</h2>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>Comprendre les alias de compte PI-SPI, guide développeur BCEAO — <a href="https://developer.pispi.bceao.int/guides/alias-overview" class="text-blue-500 hover:text-blue-600 break-words">developer.pispi.bceao.int/guides/alias-overview</a></li>
+        <li>Gérer vos alias via l'API Business, guide développeur BCEAO — <a href="https://developer.pispi.bceao.int/guides/alias-gerer" class="text-blue-500 hover:text-blue-600 break-words">developer.pispi.bceao.int/guides/alias-gerer</a></li>
+        <li>Foire aux questions PI-SPI (BCEAO) — catégories de clients P/C/B/G — <a href="https://pispi.bceao.int/foire-aux-questions" class="text-blue-500 hover:text-blue-600 break-words">pispi.bceao.int/foire-aux-questions</a></li>
+        <li>L'alias, page dédiée PI-SPI (BCEAO) — <a href="https://pispi.bceao.int/lalias" class="text-blue-500 hover:text-blue-600 break-words">pispi.bceao.int/lalias</a></li>
+        <li>Accueil PI-SPI (BCEAO) — accès multicanal (app, web, USSD) — <a href="https://pispi.bceao.int/accueil" class="text-blue-500 hover:text-blue-600 break-words">pispi.bceao.int/accueil</a></li>
+        <li>Spécification API Business PI-SPI (schéma AliasCreationDemande) — champ Ville obligatoire pour personnes morales — document projet</li>
+      </ul>
+    </section>
+
+    <!-- Tags -->
+    <div class="mt-8 flex flex-wrap gap-2">
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#PISPI</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#BCEAO</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#Fintech</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#UEMOA</span>
+      <span class="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">#PaiementInstantané</span>
+    </div>
+
+    <!-- Pied de page article -->
+    <div class="mt-12 pt-6 border-t border-gray-300">
+      <a href="./index.html" class="inline-flex items-center text-blue-500 hover:text-blue-600 font-semibold">← Retour au blog</a>
+    </div>
+
+  </article>
+
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-6">
+      <p class="text-center">Copyright &copy; <span id="current-year">2023</span>
+      Web Developer Portfolio | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Menu mobile (bouton hamburger)
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', isOpen);
+    });
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
